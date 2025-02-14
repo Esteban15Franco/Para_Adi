@@ -168,21 +168,17 @@
         "Tu amor es el fuego que mantiene vivo mi corazón",
         "Eres mi amor eterno, mi alegría infinita"
     ];
-    let mensajesUsados = [];
+
+    let indice = 0;
 
     function mostrarMensaje() {
-        if (mensajes.length === 0) {
-            mensajes = [...mensajesUsados]; // Recarga los mensajes usados
-            mensajesUsados = [];
+        if (indice < mensajes.length) {
+            document.getElementById("mensaje").innerText = mensajes[indice];
+            indice++;
+        } else {
+            document.getElementById("mensaje").innerText = "Ya no tengo más mensajes para ti, mi amor.";
         }
-
-        const indice = Math.floor(Math.random() * mensajes.length);
-        const mensaje = mensajes.splice(indice, 1)[0]; // Elimina el mensaje seleccionado
-        mensajesUsados.push(mensaje); // Lo agrega a la lista de usados
-
-        document.getElementById("mensaje").innerText = mensaje;
     }
 </script>
 </body>
 </html>
-
