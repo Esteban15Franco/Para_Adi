@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para mi adorada Adi</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffebf0;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: auto;
+        }
+        h1 {
+            color: #e60073;
+        }
+        p {
+            font-size: 18px;
+            color: #333;
+        }
+        button {
+            background-color: #e60073;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #c4005e;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Para mi adorada Adi</h1>
+    <p>Mi tlacomaye preciosa, eres lo mejor que me ha pasado. No hay palabras suficientes para describir lo mucho que te amo y lo importante que eres para mí.</p>
+    <p>Aquí tienes algunas razones por las que eres la persona más especial en mi vida:</p>
+    <ul>
+        <li>Tu risa ilumina mi mundo.</li>
+        <li>Tus ojos son el reflejo más hermoso de mi felicidad.</li>
+        <li>Tu voz es mi canción favorita.</li>
+        <li>Tu ternura y cariño hacen que mi corazón lata más fuerte.</li>
+        <li>Tu amor es el regalo más hermoso que tengo.</li>
+    </ul>
+    <button onclick="mostrarMensaje()">quiero decirte algo (Presioname)</button>
+    <p id="mensaje"></p>
+</div>
+<script>
+    let mensajes = [
+        "Eres mi mayor alegría, Adi.",
+        "Cada día contigo es un regalo hermoso.",
+        "No hay nada en este mundo que ame más que a ti.",
+        "Eres mi paz, mi amor, mi todo.",
+        "Siempre serás mi más dulce sueño hecho realidad."
+    ];
+    let mensajesUsados = [];
+
+    function mostrarMensaje() {
+        if (mensajes.length === 0) {
+            mensajes = [...mensajesUsados]; // Recarga los mensajes usados
+            mensajesUsados = [];
+        }
+
+        const indice = Math.floor(Math.random() * mensajes.length);
+        const mensaje = mensajes.splice(indice, 1)[0]; // Elimina el mensaje seleccionado
+        mensajesUsados.push(mensaje); // Lo agrega a la lista de usados
+
+        document.getElementById("mensaje").innerText = mensaje;
+    }
+</script>
+</body>
+</html>
