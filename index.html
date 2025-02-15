@@ -43,16 +43,13 @@
         /* Estilos para flores */
         .flores {
             font-size: 40px;
-            animation: none;
-            display: inline-block;
-            margin-top: 20px;
             opacity: 0;
             transition: opacity 1s;
+            animation: floresAnimadas 3s forwards;
         }
         @keyframes floresAnimadas {
             0% { transform: scale(1); opacity: 0.5; }
-            50% { transform: scale(1.2); opacity: 1; }
-            100% { transform: scale(1); opacity: 0.5; }
+            100% { transform: scale(1.2); opacity: 1; }
         }
     </style>
 </head>
@@ -108,23 +105,12 @@
         "Desde que te conocí, supe que mi corazón te pertenecía",
         "Cada instante a tu lado es un tesoro que guardo en mi alma",
         "Eres el sueño que nunca quiero despertar",
-        "Tu amor es la melodía que le da ritmo a mi vida",
-        "Si tuviera que elegir un lugar donde estar, siempre sería a tu lado",
-        "Eres la chispa que enciende mi felicidad",
-        "Tu amor es el mejor regalo que la vida me ha dado",
-        "Amarte es la mayor fortuna que podría tener",
-        "Eres mi paz en medio del caos",
-        "Cada sonrisa tuya ilumina mi mundo",
-        "Amarte es la mejor decisión que he tomado",
-        "Eres mi estrella en las noches más oscuras",
-        "Desde que llegaste a mi vida, todo tiene más color",
-        "Cada mirada tuya es un poema sin palabras",
         "Tu amor es el fuego que calienta mi alma",
         "Eres mi más dulce adicción",
         "En cada latido de mi corazón estás tú",
         "Siempre serás mi razón para sonreír",
         "Tu amor es el mejor refugio que he encontrado",
-        "Amar es hermoso, pero amarte a ti es un privilegio",
+        "Amarte es hermoso, pero amarte a ti es un privilegio",
         "Eres la historia de amor que siempre quise vivir",
         "Mi felicidad tiene tu nombre",
         "Eres mi rayo de sol en los días grises",
@@ -189,7 +175,7 @@
         } else {
             document.body.style.backgroundColor = "#ffe6f2"; // Fondo más especial
             document.getElementById('mensaje').innerHTML =
-            "<span class='flores' style='animation: floresAnimadas 3s infinite;'>🌻🌸💐</span> ";
+            "<span class='flores'>🌻🌸💐</span> ";
             i = 0;
         }
     }
