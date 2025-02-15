@@ -10,6 +10,7 @@
             background-color: #ffebf0;
             text-align: center;
             padding: 20px;
+            transition: background-color 1s;
         }
         .container {
             background: white;
@@ -163,20 +164,17 @@
         "Cada día contigo es un nuevo sueño cumplido",
         "Eres la estrella que guía mi camino",
         "Tu amor es el más dulce de los sentimientos",
-        "Eres el anhelo de mi alma y la alegría de mi corazón",
-        "Siempre estarás en cada uno de mis latidos",
-        "Tu amor es el fuego que mantiene vivo mi corazón",
-        "Eres mi amor eterno, mi alegría infinita"
+        "Eres el anhelo de mi alma y la alegría de mi corazón"
     ];
 
-    let indice = 0;
-
+    let i = 0;
     function mostrarMensaje() {
-        if (indice < mensajes.length) {
-            document.getElementById("mensaje").innerText = mensajes[indice];
-            indice++;
+        if (i < mensajes.length) {
+            document.getElementById('mensaje').textContent = mensajes[i];
+            i++;
         } else {
-            document.getElementById("mensaje").innerText = "Ya no tengo más mensajes para ti, mi amor.";
+            document.body.style.backgroundColor = "#ffe6f2"; // Fondo más especial
+            document.getElementById('mensaje').innerHTML = "Te amo, mi vida. Siempre seré tu pixqui, y tú siempre serás mi tlacomaye.";
         }
     }
 </script>
