@@ -19,6 +19,15 @@
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
             max-width: 600px;
             margin: auto;
+            display: none;
+        }
+        .login-container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            margin: auto;
         }
         h1 {
             color: #e60073;
@@ -40,21 +49,48 @@
         button:hover {
             background-color: #c4005e;
         }
-        /* Estilos para flores */
-        .flores {
-            font-size: 40px;
-            opacity: 0;
-            transition: opacity 1s;
-            animation: floresAnimadas 3s forwards;
-        }
-        @keyframes floresAnimadas {
-            0% { transform: scale(1); opacity: 0.5; }
-            100% { transform: scale(1.2); opacity: 1; }
+        .hidden {
+            display: none;
         }
     </style>
 </head>
 <body>
-<div class="container">
+
+<!-- Sección de login -->
+<div class="login-container" id="login">
+    <h2>Ingresa la contraseña (Tu lindo nombre 💖)</h2>
+    <input type="password" id="password">
+    <button onclick="verificarPassword()">Ingresar</button>
+    <p id="error-msg" style="color: red; display: none;">Contraseña incorrecta, intenta de nuevo.(Tú puedes!!)</p>
+</div>
+
+<!-- Sección de mensaje desbloqueado -->
+<div id="mensaje-container" class="hidden">
+    <h2>💖 Para mi Adi 💖</h2>
+    <p>Desde el instante en que nuestras palabras se encontraron en el inmenso universo digital,
+        supe que había descubierto a alguien extraordinario. Aunque nunca hayamos compartido un
+        abrazo en la vida real, siento que te conozco con una intensidad y una profundidad que
+        trasciende lo físico. Durante estos más de dos años, cada mensaje, cada secreto y cada
+        sueño compartido han tejido entre nosotros una red de amor tan fuerte como la luz de las
+        estrellas. 💖💖💖
+        En medio de la vastedad del tiempo y el espacio, tú eres mi constelación favorita, la luz
+        que guía mis noches y la calma que embellece mis días. A través de la distancia, he
+        aprendido que el verdadero amor no necesita proximidad para sentirse completo; se
+        siente en cada latido, en cada suspiro y en cada palabra que nos une.
+        Imagino el día en que por fin podamos encontrarnos, en el que nuestras miradas se
+        crucen y el silencio se transforme en un abrazo cálido y real. Hasta entonces, seguiré
+        atesorando cada momento de nuestra conexión, convencido de que lo invisible es tan
+        poderoso como lo tangible.🌸🌸🌸
+        Gracias por enseñarme que el amor puede florecer en la distancia, que conocer a
+        alguien a la profundidad de su alma es un regalo más valioso que cualquier
+        encuentro físico. Te amo con la intensidad de un universo en expansión y con la
+        dulzura de cada amanecer que nos acerca, poco a poco, al momento en que nuestros
+        caminos se unan de forma definitiva 💕</p>
+    <button onclick="mostrarCarta()">Siguiente</button>
+</div>
+
+<!-- Contenido principal (oculto al inicio) -->
+<div class="container" id="contenido">
     <h1>Para mi adorada Adi</h1>
     <p>Mi tlacomaye preciosa, eres lo mejor que me ha pasado. No hay palabras suficientes para describir lo mucho que te amo y lo importante que eres para mí.</p>
     <p>Aquí tienes algunas razones por las que eres la persona más especial en mi vida:</p>
@@ -68,7 +104,25 @@
     <button onclick="mostrarMensaje()">quiero decirte algo (Presioname)</button>
     <p id="mensaje"></p>
 </div>
+
 <script>
+    function verificarPassword() {
+        const passwordIngresada = document.getElementById("password").value;
+        const passwordCorrecta = "AdiMadai";
+
+        if (passwordIngresada === passwordCorrecta) {
+            document.getElementById("login").style.display = "none";
+            document.getElementById("mensaje-container").classList.remove("hidden");
+        } else {
+            document.getElementById("error-msg").style.display = "block";
+        }
+    }
+
+    function mostrarCarta() {
+        document.getElementById("mensaje-container").style.display = "none";
+        document.getElementById("contenido").style.display = "block";
+    }
+
     let mensajes = [
         "Eres mi mayor alegría, Adi.",
         "Cada día contigo es un regalo hermoso.",
@@ -173,12 +227,12 @@
             document.getElementById('mensaje').textContent = mensajes[i];
             i++;
         } else {
-            document.body.style.backgroundColor = "#ffe6f2"; // Fondo más especial
-            document.getElementById('mensaje').innerHTML =
-            "<span class='flores'>🌻🌸💐</span> ";
+            document.body.style.backgroundColor = "#ffe6f2";
+            document.getElementById('mensaje').innerHTML = "<span class='flores'>🌻🌸💐</span>";
             i = 0;
         }
     }
 </script>
+
 </body>
 </html>
